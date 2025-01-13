@@ -8,7 +8,6 @@ async function login() {
     if (error) throw error;
   } catch (error) {
     console.log(error);
-  } finally {
   }
 }
 
