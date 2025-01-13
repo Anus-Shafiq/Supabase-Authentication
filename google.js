@@ -2,7 +2,7 @@ let btn = document.getElementById("googleBtn");
 
 async function login() {
   try {
-    const { error } = awaitsupabase.auth.signInWithOAuth({
+    const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
     });
     if (error) throw error;
