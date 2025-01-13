@@ -25,6 +25,8 @@ async function logIn() {
       title: error.message,
       text: "Something went wrong!",
     });
+  } finally {
+    window.location.href = "dashboard.html";
   }
 }
 loginBtn.addEventListener("click", logIn);
