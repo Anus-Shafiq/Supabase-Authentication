@@ -3,9 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap.css" />
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
     <title>Dashboard</title>
   </head>
   <body>
-    <h1>Dashboard</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="text-center mt-5">
+            <h1>Dashboard</h1>
+            <button class="btn btn-primary" id="logoutBtn">Log Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="./config.js"></script>
+    <script type="module" src="./logout.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>

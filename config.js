@@ -1,7 +1,5 @@
 supabase;
 
-console.log(supabase);
-
 const { createClient } = supabase;
 const url = "https://yicipmhgqfbaymfmunqp.supabase.co";
 const apiKey =
