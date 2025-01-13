@@ -9,7 +9,6 @@ async function login() {
   } catch (error) {
     console.log(error);
   } finally {
-    window.location.href = "dashboard.html";
   }
 }
 
