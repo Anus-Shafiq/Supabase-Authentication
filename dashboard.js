@@ -32,6 +32,7 @@ async function userdata() {
     });
 
     userTableBody.innerHTML = "";
+    getuser();
   } catch (error) {
     console.log(error);
   }
@@ -42,6 +43,8 @@ async function getuser() {
     const { data, error } = await supabase.from("user").select();
     if (error) throw error;
 
+    userTableBody.innerHTML = "";
+
     if (data) {
       data.map((val, index) => {
         return (userTableBody.innerHTML += `
@@ -51,7 +54,8 @@ async function getuser() {
                         <td scope="col">${val.company_name}</td>
                         <td scope="col">${val.email}</td>
                         <td scope="col">${val.address}</td>
-                        
+                       <td> <span> <i id="delete_User" onclick="deleteUser(${val.id})" class="fa-solid fa-trash"></i> </span> </td>
+
                       </tr>
                 `);
       });
@@ -61,6 +65,38 @@ async function getuser() {
   }
 }
 
+async function deleteUser(UserId) {
+  try {
+    Swal.fire({
+      title: "Are you sure want to delete the user",
+      showCancelButton: true,
+      confirmButtonText: "Delete",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const { data, error } = await supabase
+          .from("user")
+          .delete()
+          .eq("id", UserId)
+          .select();
+
+        if (error) throw error;
+        if (data) {
+          console.log("hello");
+          Swal.fire({
+            icon: "success",
+            title: "User Deleted Succesfully ",
+          });
+          getuser();
+        }
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 addUserBtn.addEventListener("click", userdata);
 
-window.onload = getuser();
+window.onload = getuser;
+
+window.deleteUser = deleteUser;
