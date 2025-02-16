@@ -16,6 +16,7 @@ async function logIn() {
         text: "Log In Successfully",
         icon: "success",
       });
+      window.location.href = "feed.html";
     }
     return data;
   } catch (error) {
@@ -26,7 +27,6 @@ async function logIn() {
       text: "Something went wrong!",
     });
   } finally {
-    window.location.href = "dashboard.html";
   }
 }
 loginBtn.addEventListener("click", logIn);

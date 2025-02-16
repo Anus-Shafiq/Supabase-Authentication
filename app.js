@@ -11,11 +11,45 @@ async function checkSession() {
 
     if (session) {
       if (isAuthPage) {
-        window.location.href = "/dashboard.html";
+        window.location.href = "/feed.html";
       }
     } else {
       if (!isAuthPage) {
         window.location.href = "/login.html";
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  getUserDetails();
+}
+
+async function getUserDetails() {
+  try {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (user) {
+      console.log(user);
+      try {
+        const { data, error } = await supabase
+          .from("usersData")
+          .select("id, name, email")
+          .eq("userid", user.id);
+
+        if (data) {
+          console.log(data);
+          let currentUser = {
+            name: data[0].name,
+            userId: user.id,
+            id: data[0].id,
+            email: data[0].email,
+          };
+          localStorage.setItem("currentUser", JSON.stringify(currentUser));
+        }
+      } catch (error) {
+        console.log(error);
       }
     }
   } catch (error) {

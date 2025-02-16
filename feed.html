@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap.css" />
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+    <title>Post App</title>
+  </head>
+  <body>
+    <!-- Navbar start -->
+    <nav class="navbar bg-body-tertiary navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#"
+          ><span class="display-6 fw-bold">Post App</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-start"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Post App</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <div
+              class="navbar-nav justify-content-center align-items-center flex-grow-1 pe-3"
+            ></div>
+            <div class="d-flex mt-3" role="search">
+              <button class="btn btn-danger px-3" type="submit" id="logoutBtn">
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar end -->
+
+    <div class="container mt-4">
+      <div class="row mt-3">
+        <div class="col-12 col-md-12 col-lg-6">
+          <div class="row g-3">
+            <div class="col-md-12">
+              <label for="postContent" class="form-label">Post Content</label>
+              <textarea
+                name=""
+                class="form-control"
+                id="postContent"
+              ></textarea>
+            </div>
+
+            <div class="col-md-12">
+              <label for="postFile" class="form-label"
+                >Upload Image (optional)</label
+              >
+              <input id="postFile" type="file" class="form-control" />
+            </div>
+
+            <div class="col-md-12">
+              <button id="postBtn" class="btn btn-primary w-100">Post</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-6">
+          <div id="posts-container"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="./config.js"></script>
+    <script
+      src="https://kit.fontawesome.com/2ab38ab271.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module" src="./feed.js"></script>
+    <script type="module" src="logout.js"></script>
+
+    <script type="module" src="app.js"></script>
+    <script src="pooper.js"></script>
+    <script src="bootstrapscript.js"></script>
+  </body>
+</html>

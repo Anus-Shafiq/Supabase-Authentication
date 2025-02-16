@@ -30,11 +30,25 @@ async function signUp() {
 
       if (error) throw error;
       if (data) {
+        console.log(data.user.id);
         Swal.fire({
           title: "Sign Up",
           text: "Please Check Your Email for Confirmation",
           icon: "success",
         });
+
+        try {
+          const { data: userData, error: userError } = await supabase
+            .from("usersData")
+            .insert({
+              userid: data.user.id,
+              name: signupName.value,
+              email: signupEmail.value,
+            })
+            .select();
+        } catch (error) {
+          console.log(error);
+        }
       }
     } catch (error) {
       console.log(error);
