@@ -1,9 +1,9 @@
 supabase;
 
 const { createClient } = supabase;
-const url = "https://yicipmhgqfbaymfmunqp.supabase.co";
+const url = "https://rlzcmzmvupiejtlimxsj.supabase.co";
 const apiKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpY2lwbWhncWZiYXltZm11bnFwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY2MTQ5NTIsImV4cCI6MjA1MjE5MDk1Mn0.2u4qDgd5_Edp2Uu35yMWRpS5OAZkOHhEQYGPMRkROg0";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJsemNtem12dXBpZWp0bGlteHNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI5MDM4NDQsImV4cCI6MjA1ODQ3OTg0NH0.NQyccqUam9fI3iKM0elo9-yQyo6voT8ue2PYvhaLw8w";
 const supabaseClient = createClient(url, apiKey);
 
 window.supabase = supabaseClient;

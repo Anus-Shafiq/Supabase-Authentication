@@ -35,7 +35,7 @@ async function getUserDetails() {
       try {
         const { data, error } = await supabase
           .from("usersData")
-          .select("id, name, email")
+          .select("id, name, email,profilePic")
           .eq("userid", user.id);
 
         if (data) {
@@ -45,6 +45,7 @@ async function getUserDetails() {
             userId: user.id,
             id: data[0].id,
             email: data[0].email,
+            userPic: data[0].profilePic,
           };
           localStorage.setItem("currentUser", JSON.stringify(currentUser));
         }
