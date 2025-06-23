@@ -31,7 +31,6 @@ async function getUserDetails() {
     } = await supabase.auth.getUser();
 
     if (user) {
-      console.log(user);
       try {
         const { data, error } = await supabase
           .from("usersData")
@@ -39,13 +38,12 @@ async function getUserDetails() {
           .eq("userid", user.id);
 
         if (data) {
-          console.log(data);
           let currentUser = {
             name: data[0].name,
             userId: user.id,
             id: data[0].id,
             email: data[0].email,
-            userPic: data[0].profilePic,
+            userProfile: data[0].profilePic,
           };
           localStorage.setItem("currentUser", JSON.stringify(currentUser));
         }

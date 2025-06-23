@@ -1,4 +1,3 @@
-let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 let postContent = document.getElementById("postContent");
 let postButton = document.getElementById("postBtn");
 let postsContainer = document.getElementById("posts-container");
@@ -6,8 +5,9 @@ let postImage = document.getElementById("postImage");
 let inputImage = document.getElementById("imageInput");
 let userPic = document.getElementById("userPic");
 
-userPic.src = currentUser.userPic
-  ? currentUser.userPic
+let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+userPic.src = currentUser.userProfile
+  ? currentUser.userProfile
   : "./assets/profile.png";
 
 function getImg() {
@@ -18,6 +18,7 @@ function getImg() {
 inputImage.addEventListener("change", getImg);
 
 async function addPost() {
+  let currentUser = JSON.parse(localStorage.getItem("currentUser"));
   console.log(currentUser);
   // insert data in posts table
   try {
@@ -99,7 +100,6 @@ async function addPost() {
 
 // post load function
 async function postLoad() {
-  // get posts from posts table
   try {
     const { data: postData, error: postError } = await supabase
       .from("posts")
@@ -125,7 +125,8 @@ async function postLoad() {
             console.log(userMap);
           });
 
-          var myId = JSON.parse(localStorage.getItem("currentUser"));
+          // var myId = JSON.parse(localStorage.getItem("currentUser"));
+          var myId = currentUser;
           console.log(myId);
 
           // get post for render
